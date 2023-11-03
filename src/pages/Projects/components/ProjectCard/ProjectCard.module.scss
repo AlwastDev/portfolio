@@ -19,6 +19,13 @@
     align-self: center;
   }
 
+  &__language {
+    @include text();
+    color: $red;
+    overflow-wrap: break-word;
+    align-self: center;
+  }
+
   &__description {
     display: block;
     width: 100%;

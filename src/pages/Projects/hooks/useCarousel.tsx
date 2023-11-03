@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Project } from '../types.ts';
 import gitHubApi from '../api/GitHubAPI.tsx';
 import { sortByLanguageWithCSharpLast } from '../helpers/sortByLanguageWithCSharpLast.ts';
+import axios from 'axios';
+import { calculatePercentagesLanguages } from '../helpers/calculatePercentagesLanguages.ts';
 
 export const useCarousel = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -46,15 +48,24 @@ export const useCarousel = () => {
     (async () => {
       const repositories = await gitHubApi.getRepositories();
 
-      const newRepositories: Project[] = repositories.data.map((repository) => ({
-        name: repository.name,
-        description: repository.description,
-        repositoryLink: repository.html_url,
-        viewLink: repository.homepage,
-        language: repository.language,
-      }));
+      const newRepositories: Project[] = [];
 
-      const sortedRepositories = sortByLanguageWithCSharpLast(newRepositories, 'language', 'C#');
+      for (const repository of repositories.data) {
+        const languagesResponse = await axios(repository.languages_url);
+
+        const project: Project = {
+          name: repository.name,
+          description: repository.description,
+          repositoryLink: repository.html_url,
+          viewLink: repository.homepage,
+          mainLanguage: repository.language,
+          languages: calculatePercentagesLanguages(languagesResponse.data),
+        };
+
+        newRepositories.push(project);
+      }
+
+      const sortedRepositories = sortByLanguageWithCSharpLast(newRepositories, 'mainLanguage', 'C#');
 
       setProjects(sortedRepositories);
     })();

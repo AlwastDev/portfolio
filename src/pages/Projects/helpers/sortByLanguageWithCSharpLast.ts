@@ -1,15 +1,15 @@
-export function sortByLanguageWithCSharpLast<T extends { [K in keyof T]: string }>(
-  array: T[],
-  languageField: keyof T,
-  cSharpValue: string,
-): T[] {
+import { Project } from '../types.ts';
+
+export function sortByLanguageWithCSharpLast(array: Project[], field: keyof Project, value: string) {
   return array.sort((a, b) => {
-    if (a[languageField] === cSharpValue && b[languageField] !== cSharpValue) {
+    if (a[field] === value && b[field] !== value) {
       return 1;
-    } else if (a[languageField] !== cSharpValue && b[languageField] === cSharpValue) {
+    } else if (a[field] !== value && b[field] === value) {
       return -1;
     } else {
-      return a[languageField].localeCompare(b[languageField]);
+      const fieldA = String(a[field]);
+      const fieldB = String(b[field]);
+      return fieldA.localeCompare(fieldB);
     }
   });
 }

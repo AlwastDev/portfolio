@@ -3,7 +3,8 @@ export interface Project {
   description?: string;
   viewLink?: string;
   repositoryLink: string;
-  language: string;
+  mainLanguage: string;
+  languages: { [key: string]: number };
 }
 
 export interface GitHubRepository {
@@ -12,4 +13,5 @@ export interface GitHubRepository {
   description?: string;
   homepage?: string;
   language: string;
+  languages_url: string;
 }

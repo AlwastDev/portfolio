@@ -1,11 +1,15 @@
-function sortByLanguageWithCSharpLast(array: any[]) {
-  array.sort((a, b) => {
-    if (a.language === 'C#' && b.language !== 'C#') {
-      return 1; // Поместить объект с языком "C#" в конец
-    } else if (a.language !== 'C#' && b.language === 'C#') {
-      return -1; // Поместить объект с языком "C#" в начало
+export function sortByLanguageWithCSharpLast<T extends { [K in keyof T]: string }>(
+  array: T[],
+  languageField: keyof T,
+  cSharpValue: string,
+): T[] {
+  return array.sort((a, b) => {
+    if (a[languageField] === cSharpValue && b[languageField] !== cSharpValue) {
+      return 1;
+    } else if (a[languageField] !== cSharpValue && b[languageField] === cSharpValue) {
+      return -1;
     } else {
-      return a.language.localeCompare(b.language); // Сортировать по языку
+      return a[languageField].localeCompare(b[languageField]);
     }
   });
 }

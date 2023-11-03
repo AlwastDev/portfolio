@@ -2,24 +2,21 @@ import styles from './Header.module.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
 import { useEffect, useState } from 'react';
+import { headerLinks } from './static.ts';
 
 const Header = () => {
   const location = useLocation();
-  const [navLinks, setNavLinks] = useState([
-    { to: '/', label: '_home', isActive: false },
-    { to: '/projects', label: '_projects', isActive: false },
-    { to: '/certificates', label: '_certificates', isActive: false },
-    { to: '/aboutMe', label: '_about-me', isActive: false },
-    { to: '/contact', label: '_contact-me', isActive: false },
-  ]);
+  const [navLinks, setNavLinks] = useState(headerLinks);
 
   useEffect(() => {
-    const updatedNavLinks = navLinks.map((link) => ({
-      ...link,
-      isActive: link.to === location.pathname,
-    }));
-    setNavLinks(updatedNavLinks);
-  }, [location.pathname]);
+    if (!navLinks.some((link) => link.to === location.pathname)) {
+      const updatedNavLinks = navLinks.map((link) => ({
+        ...link,
+        isActive: link.to === location.pathname,
+      }));
+      setNavLinks(updatedNavLinks);
+    }
+  }, [location.pathname, navLinks]);
 
   return (
     <header className={styles.header}>

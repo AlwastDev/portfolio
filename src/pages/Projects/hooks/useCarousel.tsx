@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Project } from '../types.ts';
 import gitHubApi from '../api/GitHubAPI.tsx';
+import { sortByLanguageWithCSharpLast } from '../helpers/sortByLanguageWithCSharpLast.ts';
 
 export const useCarousel = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -53,7 +54,9 @@ export const useCarousel = () => {
         language: repository.language,
       }));
 
-      setProjects(sortRepositories);
+      const sortedRepositories = sortByLanguageWithCSharpLast(newRepositories, 'language', 'C#');
+
+      setProjects(sortedRepositories);
     })();
   }, []);
 

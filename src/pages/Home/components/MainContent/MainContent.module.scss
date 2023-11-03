@@ -1,0 +1,93 @@
+@import '../../../../static/typography';
+@import '../../../../static/colors';
+@import '../../../../static/animation';
+
+$downloadIcon: url("/public/download.svg");
+$land4: url('/public/land4.png');
+
+.text {
+  &__welcome {
+    @include h2();
+    color: $gray;
+    margin-bottom: 15px;
+  }
+
+  &__location {
+    @include h2();
+    color: $gray;
+    margin-bottom: 100px;
+
+    &__country {
+      color: blue;
+    }
+
+    &__city {
+      color: yellow;
+    }
+  }
+
+  &__position {
+    @include h1();
+    color: $purple;
+    margin-bottom: 75px;
+  }
+
+  &__comment {
+    @include body();
+    color: $grayDark;
+  }
+
+  &__code {
+    @include body();
+
+    &__const {
+      color: $purpleLight;
+    }
+
+    &__nameVariable {
+      color: $green;
+    }
+
+    &__linkText {
+      color: $red;
+    }
+  }
+}
+
+.cvLink {
+  @include label();
+  display: flex;
+  border: 1px $green solid;
+  border-radius: 32px;
+  margin-top: 31px;
+  width: 226px;
+  height: 61px;
+  position: relative;
+  z-index: 1;
+  color: $white;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  &:before {
+    content: $downloadIcon;
+    width: 18px;
+    height: 21px;
+    margin-right: 20px;
+  }
+
+  &:hover {
+    border: 1px $white solid;
+  }
+}
+
+.leftBottomSideIsland {
+  width: 303px;
+  height: 201px;
+  background: $land4 center/cover;
+  animation: animationMainIsland 3s ease-in-out infinite;
+  position: fixed;
+  bottom: -20px;
+  left: 0;
+  z-index: -1;
+}

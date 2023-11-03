@@ -1,0 +1,46 @@
+@mixin typography-style() {
+  font-family: Fira Code, monospace;
+}
+
+@mixin h1 {
+  @include typography-style();
+  font-size: 58px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: normal;
+}
+
+@mixin h2 {
+  @include typography-style();
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: normal;
+}
+
+@mixin body {
+  @include typography-style();
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: 150%;
+}
+
+@mixin label {
+  @include typography-style();
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: normal;
+}
+
+@mixin text {
+  @include typography-style();
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 450;
+  line-height: normal;
+}
+
+
+

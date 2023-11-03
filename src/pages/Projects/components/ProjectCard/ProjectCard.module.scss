@@ -1,0 +1,45 @@
+@import "../../../../static/colors";
+@import "../../../../static/typography";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 370px;
+  background: $blueDark4;
+  border: 1px solid $blueDark2;
+  border-radius: 8px;
+  @include label();
+  padding: 30px;
+  gap: 20px;
+
+  &__projectName {
+    color: $purple;
+    overflow-wrap: break-word;
+    align-self: center;
+  }
+
+  &__description {
+    display: block;
+    width: 100%;
+    color: $grayLight2;
+    overflow-wrap: break-word;
+  }
+
+  &__linkWrapper {
+    display: flex;
+    margin-top: auto;
+    gap: 15px;
+
+    &__link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $grayDark3;
+      border: 1px solid $blueDark2;
+      border-radius: 8px;
+      color: $white;
+      padding: 8px 12px;
+    }
+  }
+}

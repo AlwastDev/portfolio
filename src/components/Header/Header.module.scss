@@ -1,0 +1,54 @@
+@import 'src/static/typography.scss';
+@import 'src/static/colors.scss';
+
+.header {
+  display: flex;
+  height: 80px;
+  border-bottom: 1px $blueDark1 solid;
+  margin-bottom: 40px;
+  align-items: center;
+  justify-content: space-between;
+
+  &__logoText {
+    @include body();
+    display: block;
+    color: $grayLight;
+  }
+
+  &__navigation {
+    @include label();
+    height: 100%;
+
+    ul {
+      height: 100%;
+      display: flex;
+    }
+
+    a {
+      margin: 0 30px 0 30px;
+      color: $grayDark;
+
+      &:hover {
+        color: $blueDark2;
+      }
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      border-right: 1px solid $blueDark1;
+    }
+
+    li:last-child {
+      border: none;
+    }
+  }
+}
+
+.activeLink a {
+  color: $white;
+
+  &:hover {
+    color: $white;
+  }
+}

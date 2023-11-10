@@ -12,15 +12,17 @@ const App = () => {
   return (
     <>
       <Header />
-      <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/aboutMe" element={<AboutMePage />} />
-          <Route path="/contactMe" element={<ContactMePage />} />
-          <Route path="/certificates" element={<CertificatesPage />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-        </Routes>
-      </Suspense>
+      <main>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/aboutMe" element={<AboutMePage />} />
+            <Route path="/contactMe" element={<ContactMePage />} />
+            <Route path="/certificates" element={<CertificatesPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+          </Routes>
+        </Suspense>
+      </main>
     </>
   );
 };

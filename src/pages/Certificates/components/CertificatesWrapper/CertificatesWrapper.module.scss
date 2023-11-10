@@ -1,8 +1,8 @@
-@import "../../../../static/colors";
-@import "../../../../static/animation";
+@import "@static/colors";
+@import "@static/animation";
 
-$arrowLeft: url('public/arrowLeft.svg');
-$arrowRight: url('public/arrowRight.svg');
+$arrowLeft: url('@assets/arrowLeft.svg');
+$arrowRight: url('@assets/arrowRight.svg');
 
 .certificatesWrapper {
   display: flex;

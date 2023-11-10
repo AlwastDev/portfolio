@@ -1,7 +1,8 @@
-@import "../../../../static/colors";
-@import "../../../../static/typography";
+@import "@static/colors";
+@import "@static/typography";
 
 .codePlace {
+  @include body();
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -10,7 +11,6 @@
   border: 1px solid $blueDark2;
   border-radius: 8px;
   padding: 25px 25px 25px 54px;
-  @include body();
   color: $green;
 
   &__line {

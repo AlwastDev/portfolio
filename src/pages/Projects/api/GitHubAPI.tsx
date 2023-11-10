@@ -7,11 +7,6 @@ const gitHubApi = {
       `${import.meta.env.VITE_gitHubAPI}/users/${import.meta.env.VITE_gitHubNickname}/repos`,
     );
   },
-  getLanguages: async (projectName: string) => {
-    return await axios.get<GitHubRepository[]>(
-      `${import.meta.env.VITE_gitHubAPI}/users/${import.meta.env.VITE_gitHubNickname}/repos/${projectName}/languages`,
-    );
-  },
 };
 
 export default gitHubApi;

@@ -1,3 +1,3 @@
-import wildauCertificate from '../../../public/certificates/WildauCertificate.pdf';
+import wildauCertificate from '@assets/certificates/WildauCertificate.pdf';
 
 export const certificates = [wildauCertificate];

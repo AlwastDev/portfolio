@@ -1,11 +1,11 @@
-@import '../../../../static/animation';
+@import '@static/animation';
 
-$bigIsland: url('/public/bigLandComputer.png');
-$land1: url('/public/land1.png');
-$land2: url('/public/land2.png');
-$land3: url('/public/land3.png');
-$cloud1: url('/public/cloud1.png');
-$cloud2: url('/public/cloud2.png');
+$bigIsland: url('@assets/bigLandComputer.png');
+$land1: url('@assets/land1.png');
+$land2: url('@assets/land2.png');
+$land3: url('@assets/land3.png');
+$cloud1: url('@assets/cloud1.png');
+$cloud2: url('@assets/cloud2.png');
 
 .content {
   position: relative;

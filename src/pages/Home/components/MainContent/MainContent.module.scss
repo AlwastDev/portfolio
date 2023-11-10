@@ -1,9 +1,9 @@
-@import '../../../../static/typography';
-@import '../../../../static/colors';
-@import '../../../../static/animation';
+@import '@static/typography';
+@import '@static/colors';
+@import '@static/animation';
 
-$downloadIcon: url("/public/download.svg");
-$land4: url('/public/land4.png');
+$downloadIcon: url('@assets/download.svg');
+$land4: url('@assets/land4.png');
 
 .text {
   &__welcome {

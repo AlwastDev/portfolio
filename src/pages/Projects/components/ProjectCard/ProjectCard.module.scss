@@ -1,7 +1,8 @@
-@import "../../../../static/colors";
-@import "../../../../static/typography";
+@import "@static/colors";
+@import "@static/typography";
 
 .card {
+  @include label();
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -9,7 +10,6 @@
   background: $blueDark4;
   border: 1px solid $blueDark2;
   border-radius: 8px;
-  @include label();
   padding: 30px;
   gap: 20px;
 

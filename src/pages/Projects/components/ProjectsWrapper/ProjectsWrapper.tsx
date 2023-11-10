@@ -1,9 +1,9 @@
 import styles from './ProjectsWrapper.module.scss';
 import ProjectCard from '../ProjectCard';
-import { useCarousel } from '../../hooks/useCarousel.tsx';
+import { useProjectsCarousel } from '../../hooks/useProjectsCarousel.tsx';
 
 const ProjectsWrapper = () => {
-  const { currentProjects, isSwitchingLeft, isSwitchingRight, nextGroup, prevGroup } = useCarousel();
+  const { currentProjects, isSwitchingLeft, isSwitchingRight, nextGroup, prevGroup } = useProjectsCarousel();
 
   return (
     <div className={styles.projectsWrapper}>

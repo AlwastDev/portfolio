@@ -5,7 +5,7 @@ import { sortByLanguageWithCSharpLast } from '../helpers/sortByLanguageWithCShar
 import axios from 'axios';
 import { calculatePercentagesLanguages } from '../helpers/calculatePercentagesLanguages.ts';
 
-export const useCarousel = () => {
+export const useProjectsCarousel = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [projects, setProjects] = useState<Project[]>([]);
   const [currentProjects, setCurrentProjects] = useState<Project[]>([]);

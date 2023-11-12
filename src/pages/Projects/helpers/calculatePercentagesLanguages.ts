@@ -1,7 +1,9 @@
-export function calculatePercentagesLanguages(languages: { [key: string]: number }) {
+import { Languages } from '@pages/Projects/types.ts';
+
+export function calculatePercentagesLanguages(languages: Languages) {
   const totalBytes = Object.values(languages).reduce((total, bytes) => total + bytes, 0);
 
-  const percentages: { [key: string]: number } = {};
+  const percentages: Languages = {};
 
   for (const language in languages) {
     const percentage = (languages[language] / totalBytes) * 100;

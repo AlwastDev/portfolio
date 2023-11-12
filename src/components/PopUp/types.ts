@@ -1,7 +1,7 @@
-import { ReactNode } from 'react';
+import React from 'react';
 
 export interface PopUpProps {
   isOpen: boolean;
   onClose: () => void;
-  children: ReactNode[] | ReactNode;
+  children: React.ReactNode[] | React.ReactNode;
 }

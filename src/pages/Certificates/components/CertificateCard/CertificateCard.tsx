@@ -1,29 +1,26 @@
-import { FC, useState } from 'react';
-import { PopUp } from '@components/index.ts';
+import { FC, useContext } from 'react';
 import { CertificateCardProps } from './types.ts';
-import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
+import styles from './CertificateCard.module.scss';
+import { MyContext } from '@pages/Certificates/context.ts';
+import CertificatePopUp from '@pages/Certificates/components/CertificatePopUp';
 
 const CertificateCard: FC<CertificateCardProps> = ({ certificate }) => {
-  const [pagesCount, setPagesCount] = useState(1);
-  const [isOpen, setIsOpen] = useState<boolean>(true);
+  const context = useContext(MyContext);
+
+  if (!context) {
+    return null;
+  }
 
   return (
-    <PopUp isOpen={isOpen} onClose={() => setIsOpen(!isOpen)}>
-      <Document
-        file={certificate}
-        onLoadSuccess={(data) => {
-          setPagesCount(data._pdfInfo.numPages);
-        }}
-      >
-        {Array.from(new Array(pagesCount), (_, index) => (
-          <Page key={`page_${index + 1}`} pageNumber={index + 1} />
-        ))}
-      </Document>
-    </PopUp>
+    <>
+      <div className={styles.card}>
+        <h2 className={styles.card__certificateName}>{certificate.name}</h2>
+        <button id="buttonOpenPopUp" className={styles.card__seeButton} onClick={() => context.setIsOpen(true)}>
+          See
+        </button>
+      </div>
+      {context.isOpen && <CertificatePopUp certificate={certificate} />}
+    </>
   );
 };
 

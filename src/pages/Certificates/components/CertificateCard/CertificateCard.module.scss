@@ -1,3 +1,34 @@
+@import "@static/colors";
+@import "@static/typography";
 
+.card {
+  @include label();
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 370px;
+  background: $blueDark4;
+  border: 1px solid $blueDark2;
+  border-radius: 8px;
+  padding: 30px;
+  gap: 20px;
 
+  &__certificateName {
+    color: $purple;
+    overflow-wrap: break-word;
+    align-self: center;
+  }
 
+  &__seeButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $grayDark3;
+    border: 1px solid $blueDark2;
+    border-radius: 8px;
+    color: $white;
+    padding: 8px 12px;
+    width: 100px;
+    margin: auto auto 0 auto;
+  }
+}

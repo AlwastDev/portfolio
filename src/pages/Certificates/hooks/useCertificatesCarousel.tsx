@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import { certificates } from '../static.ts';
+import { Certificate } from '@pages/Certificates/types.ts';
 
 export const useCertificatesCarousel = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const [currentCertificates, setCurrentCertificates] = useState<string[]>([]);
+  const [currentCertificates, setCurrentCertificates] = useState<Certificate[]>([]);
   const [isSwitchingLeft, setIsSwitchingLeft] = useState(false);
   const [isSwitchingRight, setIsSwitchingRight] = useState(false);
 

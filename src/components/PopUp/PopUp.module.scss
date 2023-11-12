@@ -10,7 +10,6 @@ $closeIcon: url('@assets/closeIcon.svg');
   height: 90vh;
   display: flex;
   justify-content: center;
-  z-index: 999;
 }
 
 .popUp {
@@ -19,6 +18,7 @@ $closeIcon: url('@assets/closeIcon.svg');
   border-radius: 5px;
   overflow: auto;
   position: relative;
+  z-index: 999;
 
   &__closeButton {
     background: $closeIcon center/cover;
@@ -32,5 +32,19 @@ $closeIcon: url('@assets/closeIcon.svg');
 
   &__children {
     margin-top: 30px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $blueDark1;
+    border-radius: 20px;
+    border: 3px solid $blueDark1;
   }
 }

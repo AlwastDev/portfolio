@@ -1,10 +1,10 @@
 import { FC, useContext, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { PopUp } from '@components/index.ts';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
+import { Loader, PopUp } from '@components/index.ts';
 import { MyContext } from '@pages/Certificates/context.ts';
 import { CertificatePopUpProps } from '@pages/Certificates/components/CertificatePopUp/types.ts';
+import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
+import 'react-pdf/dist/esm/Page/TextLayer.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
@@ -24,9 +24,10 @@ const CertificatePopUp: FC<CertificatePopUpProps> = ({ certificate }) => {
         onLoadSuccess={(data) => {
           setPagesCount(data._pdfInfo.numPages);
         }}
+        loading={<Loader />}
       >
         {Array.from(new Array(pagesCount), (_, index) => (
-          <Page key={`page_${index + 1}`} pageNumber={index + 1} />
+          <Page canvasBackground={'inherit'} key={`page_${index + 1}`} pageNumber={index + 1} width={500} />
         ))}
       </Document>
     </PopUp>

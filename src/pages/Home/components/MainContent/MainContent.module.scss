@@ -1,9 +1,8 @@
-@import '@static/typography';
-@import '@static/colors';
+@import '@static/mixins';
 @import '@static/animation';
+@import '@static/colors';
 
 $downloadIcon: url('@assets/download.svg');
-$land4: url('@assets/land4.png');
 
 .text {
   &__welcome {
@@ -39,6 +38,7 @@ $land4: url('@assets/land4.png');
 
   &__code {
     @include body();
+    overflow-wrap: break-word;
 
     &__const {
       color: $purpleLight;
@@ -79,15 +79,4 @@ $land4: url('@assets/land4.png');
   &:hover {
     border: 1px $white solid;
   }
-}
-
-.leftBottomSideIsland {
-  width: 303px;
-  height: 201px;
-  background: $land4 center/cover;
-  animation: animationMainIsland 3s ease-in-out infinite;
-  position: fixed;
-  bottom: -20px;
-  left: 0;
-  z-index: -1;
 }

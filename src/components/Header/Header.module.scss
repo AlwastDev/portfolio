@@ -1,5 +1,6 @@
-@import '@static/typography.scss';
-@import '@static/colors.scss';
+@import '@static/mixins';
+@import '@static/colors';
+@import '@static/screens.scss';
 
 .header {
   display: flex;
@@ -16,6 +17,7 @@
   }
 
   &__navigation {
+    display: block;
     @include label();
     height: 100%;
 
@@ -41,6 +43,10 @@
 
     li:last-child {
       border: none;
+    }
+
+    @media screen and (max-width: $laptop) {
+      display: none;
     }
   }
 }

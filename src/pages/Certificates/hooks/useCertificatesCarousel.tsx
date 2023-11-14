@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { certificates } from '../static.ts';
-import { Certificate } from '@pages/Certificates/types.ts';
+import { certificates } from '../static/static.ts';
+import { Certificate } from '@pages/Certificates/types/types.ts';
 
 export const useCertificatesCarousel = () => {
   const [currentPage, setCurrentPage] = useState(1);

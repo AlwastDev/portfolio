@@ -1,4 +1,4 @@
-import { Project } from '../types.ts';
+import { Project } from '../types/types.ts';
 
 export function sortByLanguageWithCSharpLast(array: Project[], field: keyof Project, value: string) {
   return array.sort((a, b) => {

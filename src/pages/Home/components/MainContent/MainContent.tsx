@@ -3,7 +3,7 @@ import { TypeAnimation } from 'react-type-animation';
 
 const MainContent = () => {
   return (
-    <div className={styles.content__left}>
+    <div>
       <h2 className={styles.text__welcome}>Hi everyone. My name is Alexander Shapar</h2>
       <h2 className={styles.text__location}>
         I am from <span className={styles.text__location__country}>Ukraine</span>,{' '}
@@ -11,7 +11,7 @@ const MainContent = () => {
       </h2>
       <TypeAnimation
         sequence={['> Back-end', 500, '> Front-end developer', 1000]}
-        wrapper="h1"
+        wrapper={'h1'}
         speed={{ type: 'keyStrokeDelayInMs', value: 250 }}
         className={styles.text__position}
         repeat={Infinity}
@@ -32,7 +32,6 @@ const MainContent = () => {
       <a className={styles.cvLink} href={import.meta.env.VITE_cvLink} target="_blank">
         Curriculum
       </a>
-      <div className={styles.leftBottomSideIsland}></div>
     </div>
   );
 };

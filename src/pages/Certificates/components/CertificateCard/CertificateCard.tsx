@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
 import { CertificateCardProps } from './types.ts';
 import styles from './CertificateCard.module.scss';
-import { MyContext } from '@pages/Certificates/context.ts';
+import { MyContext } from '@pages/Certificates/context/context.ts';
 import CertificatePopUp from '@pages/Certificates/components/CertificatePopUp';
 
 const CertificateCard: FC<CertificateCardProps> = ({ certificate }) => {

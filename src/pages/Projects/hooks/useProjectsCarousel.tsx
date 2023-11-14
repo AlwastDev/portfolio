@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Project } from '../types.ts';
+import { Project } from '../types/types.ts';
 import gitHubApi from '../api/GitHubAPI.tsx';
-import { useAppQuery } from '../../../hooks/useAppQuery.ts';
+import { useAppQuery } from '@hooks/useAppQuery.ts';
 
 export const useProjectsCarousel = () => {
   const [currentPage, setCurrentPage] = useState(1);

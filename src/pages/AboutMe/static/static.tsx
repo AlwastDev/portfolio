@@ -1,4 +1,4 @@
-import styles from './components/CodePlace/CodePlace.module.scss';
+import styles from '../components/CodePlace/CodePlace.module.scss';
 
 export const codeLines = [
   <div>

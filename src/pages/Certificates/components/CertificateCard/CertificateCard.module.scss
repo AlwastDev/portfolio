@@ -1,5 +1,5 @@
-@import "@static/colors";
-@import "@static/typography";
+@import '@static/colors';
+@import '@static/mixins';
 
 .card {
   @include label();

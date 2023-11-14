@@ -1,58 +1,70 @@
 @import '@static/animation';
-
-$bigIsland: url('@assets/bigLandComputer.png');
-$land1: url('@assets/land1.png');
-$land2: url('@assets/land2.png');
-$land3: url('@assets/land3.png');
-$cloud1: url('@assets/cloud1.png');
-$cloud2: url('@assets/cloud2.png');
+@import '@static/screens';
 
 .content {
-  position: relative;
-  width: 50%;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  right: 0;
+  z-index: -1;
 
   &__mainIsland {
-    width: 590px;
-    height: 643px;
-    background: $bigIsland center/cover;
+    width: auto;
+    height: auto;
     animation: animationMainIsland 3s ease-in-out infinite;
     z-index: 1;
   }
 
   &__topRightIsland {
-    width: 153px;
-    height: 92px;
-    background: $land2 center/cover;
+    width: auto;
+    height: auto;
     animation: animationSmallIsland 3s ease-in-out infinite;
     position: absolute;
-    right: 100px;
+    right: 0;
     top: 0;
   }
 
   &__bottomRightIsland {
-    width: 122px;
-    height: 114px;
-    background: $land3 center/cover;
+    width: auto;
+    height: auto;
     animation: animationSmallIsland 3s ease-in-out infinite;
     position: fixed;
-    bottom: 180px;
+    bottom: 20%;
     right: 0;
   }
 
   &__topLeftIsland {
-    width: 122px;
-    height: 114px;
-    background: $land1 center/cover;
-    animation: animationSmallIsland 3s ease-in-out infinite;
+    width: auto;
+    height: auto;
     position: absolute;
+    animation: animationSmallIsland 3s ease-in-out infinite;
     left: 0;
     top: 0;
   }
 
+  &__leftBottomSide {
+    width: auto;
+    height: auto;
+    animation: animationMainIsland 3s ease-in-out infinite;
+    position: fixed;
+    bottom: -20px;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__mainIsland,
+  &__topRightIsland,
+  &__bottomRightIsland,
+  &__topLeftIsland,
+  &__leftBottomSide {
+    @media screen and (max-width: $laptop) {
+      visibility: hidden;
+    }
+  }
+
   &__cloudsTopLeft {
-    width: 507px;
-    height: 267px;
-    background: $cloud1 center/cover;
+    width: auto;
+    height: auto;
     animation: moveCloudLeftToRight 10s linear infinite;
     position: fixed;
     bottom: 15%;
@@ -60,9 +72,8 @@ $cloud2: url('@assets/cloud2.png');
   }
 
   &__cloudsTopRight {
-    width: 507px;
-    height: 267px;
-    background: $cloud2 center/cover;
+    width: auto;
+    height: auto;
     animation: moveCloudRightToLeft 10s linear infinite;
     position: fixed;
     top: 10%;

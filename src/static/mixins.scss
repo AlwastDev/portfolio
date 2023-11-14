@@ -1,46 +1,69 @@
+@import '@static/screens';
+
+$base-font-size: 16px;
+
 @mixin typography-style() {
-  font-family: Fira Code, monospace;
+  font-family:
+    Fira Code,
+    monospace;
 }
 
 @mixin h1 {
   @include typography-style();
-  font-size: 58px;
+  font-size: 3.625em;
   font-style: normal;
   font-weight: 450;
   line-height: normal;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 2em;
+  }
 }
 
 @mixin h2 {
   @include typography-style();
-  font-size: 32px;
+  font-size: 2em;
   font-style: normal;
   font-weight: 450;
   line-height: normal;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 1.5em;
+  }
 }
 
 @mixin body {
   @include typography-style();
-  font-size: 24px;
+  font-size: 1.5em;
   font-style: normal;
   font-weight: 450;
   line-height: 150%;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 1em;
+  }
 }
 
 @mixin label {
   @include typography-style();
-  font-size: 18px;
+  font-size: 1.125em;
   font-style: normal;
   font-weight: 450;
   line-height: normal;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 0.75em;
+  }
 }
 
 @mixin text {
   @include typography-style();
-  font-size: 14px;
+  font-size: 0.875em;
   font-style: normal;
   font-weight: 450;
   line-height: normal;
+
+  @media screen and (max-width: $mobile) {
+    font-size: 0.625em;
+  }
 }
-
-
-

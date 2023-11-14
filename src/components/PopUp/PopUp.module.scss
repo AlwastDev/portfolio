@@ -1,14 +1,14 @@
-@import '@static/colors.scss';
+@import '@static/colors';
 
 $closeIcon: url('@assets/closeIcon.svg');
 
 .popUpOverlay {
+  display: flex;
   position: fixed;
   top: 5%;
   left: 0;
   width: 100%;
   height: 90vh;
-  display: flex;
   justify-content: center;
 }
 
@@ -32,19 +32,5 @@ $closeIcon: url('@assets/closeIcon.svg');
 
   &__children {
     margin-top: 30px;
-  }
-
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: $blueDark1;
-    border-radius: 20px;
-    border: 3px solid $blueDark1;
   }
 }

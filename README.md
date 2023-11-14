@@ -8,7 +8,8 @@ I used technology to implement this project such as:
 - Vite
 - Sass
 - React Router Dom
-
+- React Query
+  
 ## Formatting and static analysis
 
 I've used tools like these to keep the code clean

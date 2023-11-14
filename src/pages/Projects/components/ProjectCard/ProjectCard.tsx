@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ProjectProps } from './types.ts';
+import { ProjectProps } from './types/types.ts';
 import styles from './ProjectCard.module.scss';
 import { useAppQuery } from '@hooks/useAppQuery.ts';
 import { Languages } from '@pages/Projects/types/types.ts';

@@ -3,9 +3,8 @@
 $base-font-size: 16px;
 
 @mixin typography-style() {
-  font-family:
-    Fira Code,
-    monospace;
+  font-family: Fira Code,
+  monospace;
 }
 
 @mixin h1 {

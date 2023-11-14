@@ -3,17 +3,17 @@
 @import '@static/screens.scss';
 
 .header {
+  align-items: center;
+  border-bottom: 1px $primaryDark solid;
   display: flex;
   height: 80px;
-  border-bottom: 1px $blueDark1 solid;
-  margin-bottom: 40px;
-  align-items: center;
   justify-content: space-between;
+  margin-bottom: 40px;
 
   &__logoText {
     @include body();
-    display: block;
     color: $grayLight;
+    display: block;
   }
 
   &__navigation {
@@ -22,23 +22,23 @@
     height: 100%;
 
     ul {
-      height: 100%;
       display: flex;
+      height: 100%;
     }
 
     a {
+      color: $grayDarkAlpha50;
       margin: 0 30px 0 30px;
-      color: $grayDark;
 
       &:hover {
-        color: $blueDark2;
+        color: $secondaryDark;
       }
     }
 
     li {
-      display: flex;
       align-items: center;
-      border-right: 1px solid $blueDark1;
+      border-right: 1px solid $primaryDark;
+      display: flex;
     }
 
     li:last-child {

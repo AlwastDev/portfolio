@@ -1,4 +1,4 @@
-import { Header } from './components';
+import { Header, Loader } from './components';
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
@@ -13,7 +13,7 @@ const App = () => {
     <>
       <Header />
       <main>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/aboutMe" element={<AboutMePage />} />

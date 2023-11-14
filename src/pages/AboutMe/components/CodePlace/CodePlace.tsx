@@ -6,9 +6,8 @@ const CodePlace = memo(() => {
   return (
     <div className={styles.codePlace}>
       {codeLines.map((line, index) => (
-        <div key={index} className={styles.codePlace__line}>
-          <div className={styles.codePlace__line__number}>{index + 1}</div>
-          <div className={styles.codePlace__line__text}>{line}</div>
+        <div key={`codeLine_${index}`} className={styles.codePlace__line}>
+          {line}
         </div>
       ))}
     </div>

@@ -1,38 +1,38 @@
 @import '@static/colors';
 @import '@static/animation';
 
-$arrowLeft: url('@assets/arrowLeft.svg');
-$arrowRight: url('@assets/arrowRight.svg');
+$arrowLeft: url('@assets/images/arrowLeft.svg');
+$arrowRight: url('@assets/images/arrowRight.svg');
 
 .certificatesWrapper {
-  display: flex;
-  width: 100%;
-  height: 560px;
-  background-color: $blueDark3;
-  border: 1px solid $blueDark2;
-  border-radius: 8px;
   align-items: center;
+  background-color: $secondaryDarkAlpha60;
+  border: 1px solid $secondaryDark;
+  border-radius: 8px;
+  display: flex;
+  height: 560px;
   justify-content: space-between;
   padding: 0 95px 0 95px;
+  width: 100%;
 }
 
 .carousel {
-  display: flex;
   align-items: center;
+  display: flex;
   margin: 0 auto;
   text-align: center;
 }
 
 .slides {
   display: flex;
-  overflow: hidden;
   gap: 30px;
+  overflow: hidden;
   transition: transform 0.5s;
 }
 
 .slide {
-  width: 100%;
   transition: transform 0.5s;
+  width: 100%;
 }
 
 .slidesLeft {
@@ -45,14 +45,14 @@ $arrowRight: url('@assets/arrowRight.svg');
 
 .previousButton {
   background: $arrowLeft;
-  width: 46px;
-  height: 46px;
   border: none;
+  height: 46px;
+  width: 46px;
 }
 
 .nextButton {
   background: $arrowRight;
-  width: 46px;
-  height: 46px;
   border: none;
+  height: 46px;
+  width: 46px;
 }

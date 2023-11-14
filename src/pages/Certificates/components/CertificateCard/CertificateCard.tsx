@@ -1,5 +1,5 @@
 import { FC, useContext } from 'react';
-import { CertificateCardProps } from './types.ts';
+import { CertificateCardProps } from './types/types.ts';
 import styles from './CertificateCard.module.scss';
 import { MyContext } from '@pages/Certificates/context/context.ts';
 import CertificatePopUp from '@pages/Certificates/components/CertificatePopUp';

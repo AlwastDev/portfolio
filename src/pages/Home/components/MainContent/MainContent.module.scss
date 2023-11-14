@@ -2,78 +2,76 @@
 @import '@static/animation';
 @import '@static/colors';
 
-$downloadIcon: url('@assets/download.svg');
+$downloadIcon: url('@assets/images/download.svg');
 
-.text {
-  &__welcome {
-    @include h2();
-    color: $gray;
-    margin-bottom: 15px;
+.welcome {
+  @include h2();
+  color: $gray;
+  margin-bottom: 15px;
+}
+
+.location {
+  @include h2();
+  color: $gray;
+  margin-bottom: 100px;
+
+  &__country {
+    color: blue;
   }
 
-  &__location {
-    @include h2();
-    color: $gray;
-    margin-bottom: 100px;
+  &__city {
+    color: yellow;
+  }
+}
 
-    &__country {
-      color: blue;
-    }
+.position {
+  @include h1();
+  color: $purple;
+  margin-bottom: 75px;
+}
 
-    &__city {
-      color: yellow;
-    }
+.comment {
+  @include body();
+  color: $grayDarkAlpha50;
+}
+
+.code {
+  @include body();
+  overflow-wrap: break-word;
+
+  &__const {
+    color: $purpleLight;
   }
 
-  &__position {
-    @include h1();
-    color: $purple;
-    margin-bottom: 75px;
+  &__nameVariable {
+    color: $green;
   }
 
-  &__comment {
-    @include body();
-    color: $grayDark;
-  }
-
-  &__code {
-    @include body();
-    overflow-wrap: break-word;
-
-    &__const {
-      color: $purpleLight;
-    }
-
-    &__nameVariable {
-      color: $green;
-    }
-
-    &__linkText {
-      color: $red;
-    }
+  &__link {
+    color: $red;
   }
 }
 
 .cvLink {
   @include label();
-  display: flex;
+  align-items: center;
   border: 1px $green solid;
   border-radius: 32px;
-  margin-top: 31px;
-  width: 226px;
-  height: 61px;
-  position: relative;
-  z-index: 1;
   color: $white;
-  justify-content: center;
-  align-items: center;
   cursor: pointer;
+  display: flex;
+  height: 61px;
+  justify-content: center;
+  margin-top: 31px;
+  position: relative;
+  width: 226px;
+  z-index: 1;
 
   &:before {
     content: $downloadIcon;
-    width: 18px;
     height: 21px;
     margin-right: 20px;
+    width: 18px;
   }
 
   &:hover {

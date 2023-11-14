@@ -3,49 +3,49 @@
 
 .card {
   @include label();
+  background: $secondaryDarkAlpha100;
+  border: 1px solid $secondaryDark;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
-  width: 400px;
-  height: 370px;
-  background: $blueDark4;
-  border: 1px solid $blueDark2;
-  border-radius: 8px;
-  padding: 30px;
   gap: 20px;
+  height: 370px;
+  padding: 30px;
+  width: 400px;
 
   &__projectName {
+    align-self: center;
     color: $purple;
     overflow-wrap: break-word;
-    align-self: center;
   }
 
   &__language {
     @include text();
+    align-self: center;
     color: $red;
     overflow-wrap: break-word;
-    align-self: center;
   }
 
   &__description {
-    display: block;
-    width: 100%;
     color: $grayLight2;
+    display: block;
     overflow-wrap: break-word;
+    width: 100%;
   }
 
   &__linkWrapper {
     display: flex;
-    margin-top: auto;
     gap: 15px;
+    margin-top: auto;
 
     &__link {
-      display: flex;
       align-items: center;
-      justify-content: center;
       background: $grayDark3;
-      border: 1px solid $blueDark2;
+      border: 1px solid $secondaryDark;
       border-radius: 8px;
       color: $white;
+      display: flex;
+      justify-content: center;
       padding: 8px 12px;
     }
   }

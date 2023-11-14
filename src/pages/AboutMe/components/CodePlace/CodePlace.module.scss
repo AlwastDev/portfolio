@@ -4,35 +4,39 @@
 .codePlace {
   @include body();
   background-color: $grayDark2;
-  border: 1px solid $blueDark2;
+  border: 1px solid $secondaryDark;
   border-radius: 8px;
   color: $green;
   display: flex;
   flex-direction: column;
-  height: 560px;
+  min-height: 560px;
   padding: 25px 25px 25px 54px;
   width: 100%;
 
+  @media screen and (max-width: $tablet) {
+    font-size: 1.2em;
+    padding: 15px 15px 15px 24px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    font-size: 0.8em;
+    padding: 10px 10px 10px 16px;
+  }
+
   &__line {
-    align-items: center;
     display: flex;
-
-    &__number {
-      color: $grayLight2;
-      width: 2.5em;
-    }
-
-    &__text {
-      flex: 1;
-    }
+    height: 100%;
+    margin-top: 5px;
+    text-wrap: revert;
 
     &__import,
     &__from {
       color: $pink;
+      overflow-y: hidden;
     }
 
     &__aboutMe {
-      color: $blueLight;
+      color: $primaryLight;
     }
 
     &__portfolio {

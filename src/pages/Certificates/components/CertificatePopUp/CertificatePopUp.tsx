@@ -2,7 +2,7 @@ import { FC, useContext, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
 import { Loader, PopUp } from '@components/index.ts';
 import { MyContext } from '@pages/Certificates/context/context.ts';
-import { CertificatePopUpProps } from '@pages/Certificates/components/CertificatePopUp/types.ts';
+import { CertificatePopUpProps } from '@pages/Certificates/components/CertificatePopUp/types/types.ts';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
 

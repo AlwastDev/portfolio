@@ -20,8 +20,8 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $blueDark1;
-    border: 3px solid $blueDark1;
+    background-color: $primaryDark;
+    border: 3px solid $primaryDark;
     border-radius: 20px;
   }
 }
@@ -40,6 +40,11 @@ main {
   display: flex;
   height: calc(100vh - 120px);
   justify-content: center;
+  overflow: hidden;
+
+  @media screen and (max-width: $laptop) {
+    height: 100%;
+  }
 }
 
 span {

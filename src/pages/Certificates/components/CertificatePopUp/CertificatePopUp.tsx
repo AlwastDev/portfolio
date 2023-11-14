@@ -5,11 +5,13 @@ import { CertificateContext } from '@pages/Certificates/context/context.ts';
 import { CertificatePopUpProps } from '@pages/Certificates/components/CertificatePopUp/types/types.ts';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
+import { useWindowWidth } from '@hooks/useWindowWidth.ts';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
 const CertificatePopUp: FC<CertificatePopUpProps> = ({ certificate }) => {
   const context = useContext(CertificateContext);
+  const width = useWindowWidth();
 
   const [pagesCount, setPagesCount] = useState<number>(1);
 
@@ -27,7 +29,12 @@ const CertificatePopUp: FC<CertificatePopUpProps> = ({ certificate }) => {
         loading={<Loader />}
       >
         {Array.from(new Array(pagesCount), (_, index) => (
-          <Page canvasBackground={'inherit'} key={`page_${index + 1}`} pageNumber={index + 1} width={500} />
+          <Page
+            canvasBackground={'inherit'}
+            key={`page_${index + 1}`}
+            pageNumber={index + 1}
+            width={width < 550 ? 300 : 500}
+          />
         ))}
       </Document>
     </PopUp>

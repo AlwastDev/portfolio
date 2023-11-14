@@ -16,7 +16,10 @@
     width: 206px;
   }
 
-  &__burgerMenu_open,
+  &__burgerMenu_open {
+    margin-left: auto;
+  }
+
   &__burgerMenu_close {
     margin-left: auto;
     z-index: 30;

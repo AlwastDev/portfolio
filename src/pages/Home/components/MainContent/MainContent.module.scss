@@ -27,7 +27,7 @@ $downloadIcon: url('@assets/images/download.svg');
 .position {
   @include h1();
   color: $purple;
-  margin-bottom: 75px;
+  height: 150px;
 }
 
 .comment {

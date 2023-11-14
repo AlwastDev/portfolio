@@ -25,7 +25,8 @@ const ProjectsWrapper = () => {
       progress: undefined,
       theme: 'dark',
     });
-    return navigate('/');
+    navigate('/');
+    return null;
   }
 
   return (

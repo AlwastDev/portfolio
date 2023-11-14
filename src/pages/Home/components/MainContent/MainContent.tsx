@@ -16,9 +16,9 @@ const MainContent = () => {
         className={styles.position}
         repeat={Infinity}
       />
-      <p className={styles.comment}>// welcome to my portfolio</p>
-      <p className={styles.comment}>// you can also see my projects on my Github page</p>
-      <p className={styles.code}>
+      <h2 className={styles.comment}>// welcome to my portfolio</h2>
+      <h2 className={styles.comment}>// you can also see my projects on my Github page</h2>
+      <h2 className={styles.code}>
         <span className={styles.code__const}>const</span> <span className={styles.code__nameVariable}>githubLink</span>{' '}
         <span>=</span>{' '}
         <a
@@ -28,7 +28,7 @@ const MainContent = () => {
         >
           “https://github.com/{import.meta.env.VITE_gitHubNickname}”
         </a>
-      </p>
+      </h2>
       <a className={styles.cvLink} href={import.meta.env.VITE_cvLink} target="_blank">
         Curriculum
       </a>

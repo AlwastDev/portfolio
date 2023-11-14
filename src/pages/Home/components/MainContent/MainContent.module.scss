@@ -16,7 +16,7 @@ $downloadIcon: url('@assets/images/download.svg');
   margin-bottom: 100px;
 
   &__country {
-    color: blue;
+    color: $purple;
   }
 
   &__city {
@@ -29,7 +29,7 @@ $downloadIcon: url('@assets/images/download.svg');
   color: $purple;
   height: 150px;
   overflow: hidden;
-  
+
   @media screen and (max-width: $laptop) {
     @include h2();
   }
@@ -54,6 +54,7 @@ $downloadIcon: url('@assets/images/download.svg');
 
   &__link {
     color: $red;
+    text-decoration: underline;
   }
 }
 

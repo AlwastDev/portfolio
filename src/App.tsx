@@ -1,6 +1,8 @@
 import { Header, Loader } from './components';
 import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const HomePage = lazy(() => import('./pages/Home/HomePage.tsx'));
 const AboutMePage = lazy(() => import('./pages/AboutMe/AboutMePage.tsx'));
@@ -23,6 +25,7 @@ const App = () => {
           </Routes>
         </Suspense>
       </main>
+      <ToastContainer />
     </>
   );
 };

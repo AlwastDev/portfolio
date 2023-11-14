@@ -2,12 +2,16 @@ import { useEffect, useState } from 'react';
 import { Project } from '../types/types.ts';
 import gitHubApi from '../api/GitHubAPI.tsx';
 import { useAppQuery } from '@hooks/useAppQuery.ts';
+import { useWindowWidth } from '@hooks/useWindowWidth.ts';
 
 export const useProjectsCarousel = () => {
+  const [countProjectOnPage, setCountProjectOnPage] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
   const [currentProjects, setCurrentProjects] = useState<Project[]>([]);
   const [isSwitchingLeft, setIsSwitchingLeft] = useState(false);
   const [isSwitchingRight, setIsSwitchingRight] = useState(false);
+
+  const width = useWindowWidth();
 
   const {
     data: projects,
@@ -20,7 +24,7 @@ export const useProjectsCarousel = () => {
 
   const nextGroup = () => {
     if (!isSwitchingLeft && projects) {
-      const remainingProjects = projects.length - currentPage * 3;
+      const remainingProjects = projects.length - currentPage * countProjectOnPage;
 
       if (remainingProjects > 0) {
         setIsSwitchingLeft(true);
@@ -44,11 +48,21 @@ export const useProjectsCarousel = () => {
 
   useEffect(() => {
     if (projects && projects.length > 0) {
-      const startIndex = (currentPage - 1) * 3;
-      const endIndex = startIndex + 3;
+      const startIndex = (currentPage - 1) * countProjectOnPage;
+      const endIndex = startIndex + countProjectOnPage;
       setCurrentProjects(projects.slice(startIndex, endIndex));
     }
-  }, [currentPage, projects]);
+  }, [countProjectOnPage, currentPage, projects]);
+
+  useEffect(() => {
+    if (width < 776) {
+      setCountProjectOnPage(1);
+    } else if (width < 1366) {
+      setCountProjectOnPage(2);
+    } else {
+      setCountProjectOnPage(3);
+    }
+  }, [width]);
 
   return {
     isLoading,

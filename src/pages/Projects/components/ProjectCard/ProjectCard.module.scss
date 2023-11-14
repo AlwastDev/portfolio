@@ -10,8 +10,21 @@
   flex-direction: column;
   gap: 20px;
   height: 370px;
+  max-width: 400px;
   padding: 30px;
-  width: 400px;
+
+  &__language,
+  &__description {
+    @include text();
+  }
+
+  @media screen and (max-width: $laptop) {
+    font-size: 1em;
+  }
+
+  @media screen and (max-width: $mobile-small) {
+    font-size: 0.8em;
+  }
 
   &__projectName {
     align-self: center;
@@ -20,7 +33,6 @@
   }
 
   &__language {
-    @include text();
     align-self: center;
     color: $red;
     overflow-wrap: break-word;

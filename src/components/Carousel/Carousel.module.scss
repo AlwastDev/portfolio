@@ -1,10 +1,11 @@
 @import '@static/colors';
 @import '@static/animation';
+@import '@static/screens';
 
 $arrowLeft: url('@assets/images/arrowLeft.svg');
 $arrowRight: url('@assets/images/arrowRight.svg');
 
-.projectsWrapper {
+.carouselWrapper {
   align-items: center;
   background-color: $secondaryDarkAlpha60;
   border: 1px solid $secondaryDark;
@@ -14,6 +15,23 @@ $arrowRight: url('@assets/images/arrowRight.svg');
   justify-content: space-between;
   padding: 0 95px 0 95px;
   width: 100%;
+
+  @media screen and (max-width: $laptop) {
+    height: auto;
+    padding: 45px;
+  }
+
+  @media screen and (max-width: $tablet) {
+    padding: 25px;
+  }
+
+  @media screen and (max-width: $mobile) {
+    padding: 15px;
+  }
+
+  @media screen and (max-width: $mobile-small) {
+    padding: 5px;
+  }
 }
 
 .carousel {
@@ -44,14 +62,14 @@ $arrowRight: url('@assets/images/arrowRight.svg');
 }
 
 .previousButton {
-  background: $arrowLeft;
+  background: $arrowLeft center/cover;
   border: none;
   height: 46px;
   width: 46px;
 }
 
 .nextButton {
-  background: $arrowRight;
+  background: $arrowRight center/cover;
   border: none;
   height: 46px;
   width: 46px;

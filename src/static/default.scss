@@ -7,10 +7,6 @@
   overflow: hidden;
   padding: 0;
 
-  @media screen and (max-width: $laptop) {
-    overflow-y: auto;
-  }
-
   &::-webkit-scrollbar {
     width: 8px;
   }

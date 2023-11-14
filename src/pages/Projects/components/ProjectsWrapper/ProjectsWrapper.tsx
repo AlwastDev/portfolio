@@ -1,7 +1,7 @@
-import styles from './ProjectsWrapper.module.scss';
+import styles from '@components/Carousel/Carousel.module.scss';
 import ProjectCard from '../ProjectCard';
 import { useProjectsCarousel } from '../../hooks/useProjectsCarousel.tsx';
-import { Loader } from '@components/index.ts';
+import { Carousel, Loader } from '@components/index.ts';
 
 const ProjectsWrapper = () => {
   const { isLoading, currentProjects, isSwitchingLeft, isSwitchingRight, nextGroup, prevGroup } = useProjectsCarousel();
@@ -11,25 +11,18 @@ const ProjectsWrapper = () => {
   }
 
   return (
-    <div className={styles.projectsWrapper}>
-      <div className={styles.carousel}>
-        {!isSwitchingLeft && !isSwitchingRight && (
-          <button className={styles.previousButton} onClick={prevGroup}></button>
-        )}
-        <div
-          className={`${styles.slides} ${
-            isSwitchingLeft ? styles.slidesLeft : isSwitchingRight ? styles.slidesRight : ''
-          }`}
-        >
-          {currentProjects.map((project, i) => (
-            <div key={`project_${i}`} className={styles.slide}>
-              <ProjectCard {...project} />
-            </div>
-          ))}
+    <Carousel
+      isSwitchingLeft={isSwitchingLeft}
+      isSwitchingRight={isSwitchingRight}
+      nextGroup={nextGroup}
+      prevGroup={prevGroup}
+    >
+      {currentProjects.map((project, i) => (
+        <div key={`project_${i}`} className={styles.slide}>
+          <ProjectCard {...project} />
         </div>
-        {!isSwitchingLeft && !isSwitchingRight && <button className={styles.nextButton} onClick={nextGroup}></button>}
-      </div>
-    </div>
+      ))}
+    </Carousel>
   );
 };
 

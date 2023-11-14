@@ -13,10 +13,6 @@ $base-font-size: 16px;
   font-style: normal;
   font-weight: 450;
   line-height: normal;
-
-  @media screen and (max-width: $mobile) {
-    font-size: 2em;
-  }
 }
 
 @mixin h2 {
@@ -25,10 +21,6 @@ $base-font-size: 16px;
   font-style: normal;
   font-weight: 450;
   line-height: normal;
-
-  @media screen and (max-width: $mobile) {
-    font-size: 1.5em;
-  }
 }
 
 @mixin body {
@@ -37,10 +29,6 @@ $base-font-size: 16px;
   font-style: normal;
   font-weight: 450;
   line-height: 150%;
-
-  @media screen and (max-width: $mobile) {
-    font-size: 1em;
-  }
 }
 
 @mixin label {
@@ -49,10 +37,6 @@ $base-font-size: 16px;
   font-style: normal;
   font-weight: 450;
   line-height: normal;
-
-  @media screen and (max-width: $mobile) {
-    font-size: 0.75em;
-  }
 }
 
 @mixin text {
@@ -61,8 +45,4 @@ $base-font-size: 16px;
   font-style: normal;
   font-weight: 450;
   line-height: normal;
-
-  @media screen and (max-width: $mobile) {
-    font-size: 0.625em;
-  }
 }

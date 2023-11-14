@@ -7,54 +7,18 @@
   border-bottom: 1px $primaryDark solid;
   display: flex;
   height: 80px;
-  justify-content: space-between;
   margin-bottom: 40px;
 
   &__logoText {
-    @include body();
+    @include label();
     color: $grayLight;
     display: block;
+    width: 206px;
   }
 
-  &__navigation {
-    display: block;
-    @include label();
-    height: 100%;
-
-    ul {
-      display: flex;
-      height: 100%;
-    }
-
-    a {
-      color: $grayDarkAlpha50;
-      margin: 0 30px 0 30px;
-
-      &:hover {
-        color: $secondaryDark;
-      }
-    }
-
-    li {
-      align-items: center;
-      border-right: 1px solid $primaryDark;
-      display: flex;
-    }
-
-    li:last-child {
-      border: none;
-    }
-
-    @media screen and (max-width: $laptop) {
-      display: none;
-    }
-  }
-}
-
-.activeLink a {
-  color: $white;
-
-  &:hover {
-    color: $white;
+  &__burgerMenu_open,
+  &__burgerMenu_close {
+    margin-left: auto;
+    z-index: 30;
   }
 }

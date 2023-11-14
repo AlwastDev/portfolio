@@ -1,14 +1,14 @@
 import { CertificatesWrapper } from './components';
 import { useState } from 'react';
-import { MyContext } from './context/context.ts';
+import { CertificateContext } from './context/context.ts';
 
 const CertificatesPage = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
-    <MyContext.Provider value={{ isOpen, setIsOpen }}>
+    <CertificateContext.Provider value={{ isOpen, setIsOpen }}>
       <CertificatesWrapper />
-    </MyContext.Provider>
+    </CertificateContext.Provider>
   );
 };
 

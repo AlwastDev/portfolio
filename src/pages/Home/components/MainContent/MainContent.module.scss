@@ -28,6 +28,11 @@ $downloadIcon: url('@assets/images/download.svg');
   @include h1();
   color: $purple;
   height: 150px;
+  overflow: hidden;
+  
+  @media screen and (max-width: $laptop) {
+    @include h2();
+  }
 }
 
 .comment {

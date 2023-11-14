@@ -1,0 +1,66 @@
+@import '@static/colors';
+@import '@static/mixins';
+
+.navMenu {
+  @include label();
+}
+
+.headerNavMenu {
+  display: block;
+  height: 100%;
+  margin-left: auto;
+
+  ul {
+    display: flex;
+    height: 100%;
+  }
+
+  a {
+    color: $grayDarkAlpha50;
+    margin: 0 30px 0 30px;
+
+    &:hover {
+      color: $secondaryDark;
+    }
+  }
+
+  li {
+    align-items: center;
+    border-right: 1px solid $primaryDark;
+    display: flex;
+  }
+
+  li:last-child {
+    border: none;
+  }
+
+  .activeLink a {
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.asideNavMenu {
+  display: flex;
+  gap: 30px;
+  margin: 80px 20px 80px 20px;
+  width: 100%;
+
+  ul {
+    position: relative;
+  }
+
+  a {
+    margin-bottom: 20px;
+  }
+
+  li {
+    align-items: center;
+    border-bottom: 1px solid $primaryDark;
+    display: flex;
+    margin-top: 50px;
+  }
+}

@@ -1,8 +1,8 @@
 import { createContext, Dispatch, SetStateAction } from 'react';
 
-interface CertificateContextProps {
+interface HeaderContextProps {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export const CertificateContext = createContext<CertificateContextProps | null>(null);
+export const HeaderContext = createContext<HeaderContextProps | null>(null);

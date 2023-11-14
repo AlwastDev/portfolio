@@ -2,11 +2,19 @@ import styles from './Carousel.module.scss';
 import { FC } from 'react';
 import { CarouselProps } from '@components/Carousel/types/types.ts';
 
-const Carousel: FC<CarouselProps> = ({ isSwitchingLeft, isSwitchingRight, prevGroup, nextGroup, children }) => {
+const Carousel: FC<CarouselProps> = ({
+  isSwitchingLeft,
+  isSwitchingRight,
+  isDisabledLeft,
+  isDisabledRight,
+  prevGroup,
+  nextGroup,
+  children,
+}) => {
   return (
     <div className={styles.carouselWrapper}>
       <div className={styles.carousel}>
-        {!isSwitchingLeft && !isSwitchingRight && (
+        {!isDisabledLeft && !isSwitchingLeft && !isSwitchingRight && (
           <button className={styles.previousButton} onClick={prevGroup}></button>
         )}
         <div
@@ -16,7 +24,9 @@ const Carousel: FC<CarouselProps> = ({ isSwitchingLeft, isSwitchingRight, prevGr
         >
           {children}
         </div>
-        {!isSwitchingLeft && !isSwitchingRight && <button className={styles.nextButton} onClick={nextGroup}></button>}
+        {!isSwitchingLeft && !isSwitchingRight && !isDisabledRight && (
+          <button className={styles.nextButton} onClick={nextGroup}></button>
+        )}
       </div>
     </div>
   );

@@ -27,9 +27,10 @@
   }
 
   &__projectName {
+    @include body();
     align-self: center;
     color: $purple;
-    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   &__language {

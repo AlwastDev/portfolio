@@ -1,16 +1,22 @@
 import { useEffect, useState } from 'react';
 import { certificates } from '../static/static.ts';
 import { Certificate } from '@pages/Certificates/types/types.ts';
+import { useWindowWidth } from '@hooks/useWindowWidth.ts';
 
 export const useCertificatesCarousel = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [countOnPage, setCountOnPage] = useState<number>(3);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentCertificates, setCurrentCertificates] = useState<Certificate[]>([]);
-  const [isSwitchingLeft, setIsSwitchingLeft] = useState(false);
-  const [isSwitchingRight, setIsSwitchingRight] = useState(false);
+  const [isSwitchingLeft, setIsSwitchingLeft] = useState<boolean>(false);
+  const [isSwitchingRight, setIsSwitchingRight] = useState<boolean>(false);
+  const [isDisabledRight, setIsDisabledRight] = useState<boolean>(false);
+  const [isDisabledLeft, setIsDisabledLeft] = useState<boolean>(false);
+
+  const width = useWindowWidth();
 
   const nextGroup = () => {
     if (!isSwitchingLeft) {
-      const remainingCertificates = certificates.length - currentPage * 3;
+      const remainingCertificates = certificates.length - currentPage * countOnPage;
 
       if (remainingCertificates > 0) {
         setIsSwitchingLeft(true);
@@ -34,16 +40,31 @@ export const useCertificatesCarousel = () => {
 
   useEffect(() => {
     if (certificates.length > 0) {
-      const startIndex = (currentPage - 1) * 3;
-      const endIndex = startIndex + 3;
+      setIsDisabledRight(certificates.length - currentPage * countOnPage <= 0);
+      setIsDisabledLeft(currentPage - 1 <= 0);
+
+      const startIndex = (currentPage - 1) * countOnPage;
+      const endIndex = startIndex + countOnPage;
       setCurrentCertificates(certificates.slice(startIndex, endIndex));
     }
-  }, [currentPage]);
+  }, [countOnPage, currentPage]);
+
+  useEffect(() => {
+    if (width < 776) {
+      setCountOnPage(1);
+    } else if (width < 1366) {
+      setCountOnPage(2);
+    } else {
+      setCountOnPage(3);
+    }
+  }, [width]);
 
   return {
     currentCertificates,
     isSwitchingLeft,
     isSwitchingRight,
+    isDisabledRight,
+    isDisabledLeft,
     nextGroup,
     prevGroup,
   };

@@ -14,7 +14,7 @@ const SideMenu: FC<SideMenuProps> = ({ navLinks }) => {
   return (
     <div className={`${context.isOpen ? styles.sideMenu_open : styles.sideMenu_close}`}>
       <div className={`${styles.background} ${context.isOpen ? styles.open : styles.close}`}></div>
-      <div className={`${styles.container}`}>
+      <div className={`${styles.container} ${context.isOpen ? styles.open : styles.close}`}>
         <NavMenu isAside={true} navLinks={navLinks} />
       </div>
     </div>

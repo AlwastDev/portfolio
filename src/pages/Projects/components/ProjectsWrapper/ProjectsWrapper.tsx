@@ -4,20 +4,15 @@ import { useProjectsCarousel } from '../../hooks/useProjectsCarousel.tsx';
 import { Carousel, Loader } from '@components/index.ts';
 
 const ProjectsWrapper = () => {
-  const { isLoading, currentProjects, isSwitchingLeft, isSwitchingRight, nextGroup, prevGroup } = useProjectsCarousel();
+  const projectsCarousel = useProjectsCarousel();
 
-  if (isLoading) {
+  if (projectsCarousel.isLoading) {
     return <Loader />;
   }
 
   return (
-    <Carousel
-      isSwitchingLeft={isSwitchingLeft}
-      isSwitchingRight={isSwitchingRight}
-      nextGroup={nextGroup}
-      prevGroup={prevGroup}
-    >
-      {currentProjects.map((project, i) => (
+    <Carousel {...projectsCarousel}>
+      {projectsCarousel.currentProjects.map((project, i) => (
         <div key={`project_${i}`} className={styles.slide}>
           <ProjectCard {...project} />
         </div>

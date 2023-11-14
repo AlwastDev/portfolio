@@ -5,11 +5,13 @@ import { useAppQuery } from '@hooks/useAppQuery.ts';
 import { useWindowWidth } from '@hooks/useWindowWidth.ts';
 
 export const useProjectsCarousel = () => {
-  const [countProjectOnPage, setCountProjectOnPage] = useState(3);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [countOnPage, setCountOnPage] = useState<number>(3);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [currentProjects, setCurrentProjects] = useState<Project[]>([]);
-  const [isSwitchingLeft, setIsSwitchingLeft] = useState(false);
-  const [isSwitchingRight, setIsSwitchingRight] = useState(false);
+  const [isSwitchingLeft, setIsSwitchingLeft] = useState<boolean>(false);
+  const [isSwitchingRight, setIsSwitchingRight] = useState<boolean>(false);
+  const [isDisabledRight, setIsDisabledRight] = useState<boolean>(false);
+  const [isDisabledLeft, setIsDisabledLeft] = useState<boolean>(false);
 
   const width = useWindowWidth();
 
@@ -24,10 +26,10 @@ export const useProjectsCarousel = () => {
 
   const nextGroup = () => {
     if (!isSwitchingLeft && projects) {
-      const remainingProjects = projects.length - currentPage * countProjectOnPage;
+      const remainingProjects = projects.length - currentPage * countOnPage;
 
+      setIsSwitchingLeft(true);
       if (remainingProjects > 0) {
-        setIsSwitchingLeft(true);
         setTimeout(() => {
           setCurrentPage((prev) => prev + 1);
           setIsSwitchingLeft(false);
@@ -48,19 +50,22 @@ export const useProjectsCarousel = () => {
 
   useEffect(() => {
     if (projects && projects.length > 0) {
-      const startIndex = (currentPage - 1) * countProjectOnPage;
-      const endIndex = startIndex + countProjectOnPage;
+      setIsDisabledRight(projects.length - currentPage * countOnPage <= 0);
+      setIsDisabledLeft(currentPage - 1 <= 0);
+
+      const startIndex = (currentPage - 1) * countOnPage;
+      const endIndex = startIndex + countOnPage;
       setCurrentProjects(projects.slice(startIndex, endIndex));
     }
-  }, [countProjectOnPage, currentPage, projects]);
+  }, [countOnPage, currentPage, projects]);
 
   useEffect(() => {
     if (width < 776) {
-      setCountProjectOnPage(1);
+      setCountOnPage(1);
     } else if (width < 1366) {
-      setCountProjectOnPage(2);
+      setCountOnPage(2);
     } else {
-      setCountProjectOnPage(3);
+      setCountOnPage(3);
     }
   }, [width]);
 
@@ -70,6 +75,8 @@ export const useProjectsCarousel = () => {
     currentProjects,
     isSwitchingLeft,
     isSwitchingRight,
+    isDisabledRight,
+    isDisabledLeft,
     nextGroup,
     prevGroup,
   };

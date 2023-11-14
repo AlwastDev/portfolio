@@ -22,6 +22,7 @@
 
 .container {
   background: $grayDark3;
+  display: flex;
   min-height: 100vh;
   position: absolute;
   right: 0;

@@ -4,16 +4,11 @@ import CertificateCard from '../CertificateCard';
 import { Carousel } from '@components/index.ts';
 
 const CertificatesWrapper = () => {
-  const { currentCertificates, isSwitchingLeft, isSwitchingRight, nextGroup, prevGroup } = useCertificatesCarousel();
+  const certificatesCarousel = useCertificatesCarousel();
 
   return (
-    <Carousel
-      isSwitchingLeft={isSwitchingLeft}
-      isSwitchingRight={isSwitchingRight}
-      nextGroup={nextGroup}
-      prevGroup={prevGroup}
-    >
-      {currentCertificates.map((certificate, i) => (
+    <Carousel {...certificatesCarousel}>
+      {certificatesCarousel.currentCertificates.map((certificate, i) => (
         <div key={`certificate_${i}`} className={styles.slide}>
           <CertificateCard certificate={certificate} />
         </div>

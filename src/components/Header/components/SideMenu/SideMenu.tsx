@@ -1,15 +1,17 @@
 import { FC, useContext } from 'react';
-import { SideMenuProps } from './types/types.ts';
-import styles from './SideMenu.module.scss';
+
 import { NavMenu } from '@components/Header/components';
+import { HeaderLink } from '@components/Header/static/static.ts';
 import { HeaderContext } from '@components/Header/context/context.ts';
+
+import styles from './SideMenu.module.scss';
+
+export interface SideMenuProps {
+  navLinks: HeaderLink[];
+}
 
 const SideMenu: FC<SideMenuProps> = ({ navLinks }) => {
   const context = useContext(HeaderContext);
-
-  if (!context) {
-    return null;
-  }
 
   return (
     <div className={`${context.isOpen ? styles.sideMenu_open : styles.sideMenu_close}`}>

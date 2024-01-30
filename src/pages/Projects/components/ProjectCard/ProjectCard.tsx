@@ -1,10 +1,13 @@
 import { FC } from 'react';
-import { ProjectProps } from './types/types.ts';
-import styles from './ProjectCard.module.scss';
+
 import { useAppQuery } from '@hooks/useAppQuery.ts';
-import { Languages } from '@pages/Projects/types/types.ts';
+import { Languages, Project } from '@models/models.ts';
 import { Loader } from '@components/index.ts';
 import gitHubAPI from '@pages/Projects/api/GitHubAPI.tsx';
+
+import styles from './ProjectCard.module.scss';
+
+export interface ProjectProps extends Project {}
 
 const ProjectCard: FC<ProjectProps> = ({ name, description, html_url, homepage, languages_url }) => {
   const { data: languages, isLoading } = useAppQuery<Languages>({

@@ -1,5 +1,6 @@
-import styles from './Loader.module.scss';
 import { createPortal } from 'react-dom';
+
+import styles from './Loader.module.scss';
 
 const Loader = () => {
   const loaderElement = document.getElementById('loader');

@@ -1,5 +1,6 @@
-import styles from './MainContent.module.scss';
 import { TypeAnimation } from 'react-type-animation';
+
+import styles from './MainContent.module.scss';
 
 const MainContent = () => {
   return (

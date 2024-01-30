@@ -1,26 +1,28 @@
-import { FC, useContext, useState } from 'react';
+import React, { FC, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
+
 import { Loader, PopUp } from '@components/index.ts';
-import { CertificateContext } from '@pages/Certificates/context/context.ts';
-import { CertificatePopUpProps } from '@pages/Certificates/components/CertificatePopUp/types/types.ts';
+import { Certificate } from '@models/models.ts';
+import { useWindowWidth } from '@hooks/useWindowWidth.ts';
+
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import 'react-pdf/dist/esm/Page/TextLayer.css';
-import { useWindowWidth } from '@hooks/useWindowWidth.ts';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/legacy/build/pdf.worker.min.js`;
 
-const CertificatePopUp: FC<CertificatePopUpProps> = ({ certificate }) => {
-  const context = useContext(CertificateContext);
+interface CertificatePopUpProps {
+  certificate: Certificate;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const CertificatePopUp: FC<CertificatePopUpProps> = ({ certificate, isOpen, setIsOpen }) => {
   const width = useWindowWidth();
 
   const [pagesCount, setPagesCount] = useState<number>(1);
 
-  if (!context) {
-    return null;
-  }
-
   return (
-    <PopUp isOpen={context.isOpen} onClose={() => context.setIsOpen(false)}>
+    <PopUp isOpen={isOpen} onClose={() => setIsOpen(false)}>
       <Document
         file={certificate.certificatePdfLink}
         onLoadSuccess={(data) => {

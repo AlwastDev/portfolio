@@ -1,6 +1,16 @@
+import React, { FC } from 'react';
+
 import styles from './Carousel.module.scss';
-import { FC } from 'react';
-import { CarouselProps } from '@components/Carousel/types/types.ts';
+
+interface CarouselProps {
+  isSwitchingLeft: boolean;
+  isSwitchingRight: boolean;
+  isDisabledLeft: boolean;
+  isDisabledRight: boolean;
+  prevGroup: () => void;
+  nextGroup: () => void;
+  children: React.ReactNode | React.ReactNode[];
+}
 
 const Carousel: FC<CarouselProps> = ({
   isSwitchingLeft,

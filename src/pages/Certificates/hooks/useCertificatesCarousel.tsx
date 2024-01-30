@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+
 import { certificates } from '../static/static.ts';
-import { Certificate } from '@pages/Certificates/types/types.ts';
+import { Certificate } from '@models/models.ts';
 import { useWindowWidth } from '@hooks/useWindowWidth.ts';
 
 export const useCertificatesCarousel = () => {

@@ -1,6 +1,7 @@
 import axios from 'axios';
+
+import { Languages, Project } from '@models/models.ts';
 import { sortByLanguageWithCSharpLast } from '@pages/Projects/helpers/sortByLanguageWithCSharpLast.ts';
-import { Languages, Project } from '@pages/Projects/types/types.ts';
 import { calculatePercentagesLanguages } from '@pages/Projects/helpers/calculatePercentagesLanguages.ts';
 
 const gitHubAPI = {

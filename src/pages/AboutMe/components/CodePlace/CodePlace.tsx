@@ -1,6 +1,8 @@
-import styles from './CodePlace.module.scss';
-import { codeLines } from '../../static/static.tsx';
 import { memo } from 'react';
+
+import { codeLines } from '../../static/static.tsx';
+
+import styles from './CodePlace.module.scss';
 
 const CodePlace = memo(() => {
   return (

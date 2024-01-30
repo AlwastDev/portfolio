@@ -6,7 +6,8 @@
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
       "@static/*": ["static/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@models/*": ["models/*"],
     },
 
     "target": "ES2020",

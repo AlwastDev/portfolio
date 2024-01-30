@@ -1,9 +1,10 @@
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import styles from '@components/Carousel/Carousel.module.scss';
 import ProjectCard from '../ProjectCard';
 import { useProjectsCarousel } from '../../hooks/useProjectsCarousel.tsx';
 import { Carousel, Loader } from '@components/index.ts';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
 
 const ProjectsWrapper = () => {
   const navigate = useNavigate();

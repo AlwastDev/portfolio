@@ -1,14 +1,20 @@
-import { CertificatesWrapper } from './components';
-import { useState } from 'react';
-import { CertificateContext } from './context/context.ts';
+import { Carousel } from '@components/index.ts';
+import CertificateCard from './components/CertificateCard';
+import { useCertificatesCarousel } from '@pages/Certificates/hooks/useCertificatesCarousel.tsx';
+
+import styles from '@components/Carousel/Carousel.module.scss';
 
 const CertificatesPage = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const certificatesCarousel = useCertificatesCarousel();
 
   return (
-    <CertificateContext.Provider value={{ isOpen, setIsOpen }}>
-      <CertificatesWrapper />
-    </CertificateContext.Provider>
+    <Carousel {...certificatesCarousel}>
+      {certificatesCarousel.currentCertificates.map((certificate, i) => (
+        <div key={`certificate_${i}`} className={styles.slide}>
+          <CertificateCard certificate={certificate} />
+        </div>
+      ))}
+    </Carousel>
   );
 };
 

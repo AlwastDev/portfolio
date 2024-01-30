@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Project } from '../types/types.ts';
+
+import { Project } from '@models/models.ts';
 import gitHubApi from '../api/GitHubAPI.tsx';
 import { useAppQuery } from '@hooks/useAppQuery.ts';
 import { useWindowWidth } from '@hooks/useWindowWidth.ts';

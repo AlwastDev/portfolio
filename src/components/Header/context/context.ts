@@ -5,4 +5,9 @@ interface HeaderContextProps {
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
-export const HeaderContext = createContext<HeaderContextProps | null>(null);
+const defaultValues: HeaderContextProps = {
+  isOpen: false,
+  setIsOpen: () => {},
+};
+
+export const HeaderContext = createContext<HeaderContextProps>(defaultValues);

@@ -1,7 +1,13 @@
-import { FC, useRef } from 'react';
+import React, { FC, useRef } from 'react';
 import { createPortal } from 'react-dom';
+
 import styles from './PopUp.module.scss';
-import { PopUpProps } from './types.ts';
+
+interface PopUpProps {
+  isOpen: boolean;
+  onClose: () => void;
+  children: React.ReactNode[] | React.ReactNode;
+}
 
 const PopUp: FC<PopUpProps> = ({ isOpen, onClose, children }) => {
   const popUpElement = document.getElementById('popup');

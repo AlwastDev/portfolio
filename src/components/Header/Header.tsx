@@ -1,13 +1,15 @@
-import styles from './Header.module.scss';
+import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { TypeAnimation } from 'react-type-animation';
-import { useEffect, useState } from 'react';
+
 import { headerLinks } from './static/static.ts';
 import BurgerMenuIcon from '@assets/images/burgerMenu.svg';
 import CloseIcon from '@assets/images/closeIcon.svg';
 import { useWindowWidth } from '@hooks/useWindowWidth.ts';
 import { NavMenu, SideMenu } from '@components/Header/components';
 import { HeaderContext } from '@components/Header/context/context.ts';
+
+import styles from './Header.module.scss';
 
 const Header = () => {
   const location = useLocation();

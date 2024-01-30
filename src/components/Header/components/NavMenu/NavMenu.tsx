@@ -1,15 +1,17 @@
-import styles from './NavMenu.module.scss';
-import { Link } from 'react-router-dom';
 import { FC, useContext } from 'react';
-import { NavMenuProps } from './types/types.ts';
+import { Link } from 'react-router-dom';
+import { HeaderLink } from '@components/Header/static/static.ts';
 import { HeaderContext } from '@components/Header/context/context.ts';
+
+import styles from './NavMenu.module.scss';
+
+interface NavMenuProps {
+  isAside: boolean;
+  navLinks: HeaderLink[];
+}
 
 const NavMenu: FC<NavMenuProps> = ({ isAside, navLinks }) => {
   const context = useContext(HeaderContext);
-
-  if (!context) {
-    return null;
-  }
 
   const closeMenu = () => {
     if (isAside) {

@@ -1,5 +1,6 @@
-import styles from './HomePage.module.scss';
 import { Islands, MainContent } from './components';
+
+import styles from './HomePage.module.scss';
 
 const HomePage = () => {
   return (

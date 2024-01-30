@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.scss';
-import App from './App.tsx';
 import { HashRouter as Router } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
+
+import App from './App.tsx';
+
+import './index.scss';
 
 const client = new QueryClient();
 

@@ -1,10 +1,11 @@
-import styles from './Islands.module.scss';
 import mainIsland from '@assets/images/bigLandComputer.png';
 import land1 from '@assets/images/land1.png';
 import land3 from '@assets/images/land3.png';
 import land4 from '@assets/images/land4.png';
 import cloud1 from '@assets/images/cloud1.png';
 import cloud2 from '@assets/images/cloud2.png';
+
+import styles from './Islands.module.scss';
 
 const Islands = () => {
   return (
